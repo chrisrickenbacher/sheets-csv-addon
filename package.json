@@ -1,6 +1,6 @@
 {
   "name": "sheets-csv-addon",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "repository": "chrisrickenbacher/sheets-csv-addon",
   "license": "MIT",
   "type": "module",
