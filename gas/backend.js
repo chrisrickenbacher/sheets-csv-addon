@@ -42,11 +42,10 @@ function startExport(obj) {
         ui.ButtonSet.YES_NO);
     if (result == ui.Button.YES) {
         let csv = _buildCSV(sheet, obj)
-        DriveApp.createFile(fileName, csv,  MimeType.PLAIN_TEXT);
-
+        DriveApp.createFile(fileName, csv, MimeType.PLAIN_TEXT);  
         ui.alert(
             'Finished',
-            `Export has been finished.`, 
+            `Export has been finished.`,
             ui.ButtonSet.OK);
     }
 

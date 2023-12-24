@@ -24,6 +24,9 @@ const successHandler = (data) => {
 
 const failureHandler = (e) => {
   error.value = e.message;
+  if (objContext.value.exportRunning) {
+    objContext.value.exportRunning = false;
+  }
 };
 
 const getContext = async () => {
