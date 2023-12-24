@@ -1,8 +1,8 @@
 <div align="center">
 
-# Sheet CSV Addon
+# Sheets CSV Addon
 
-Google Sheets addon for extended CSV exports.
+Google Sheets Add-on for extended CSV exports.
 
 
 <h3>
