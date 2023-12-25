@@ -41,7 +41,12 @@ const triggerExport = () => {
   google.script.run
     .withSuccessHandler(successHandler)
     .withFailureHandler(failureHandler)
-    .startExport(objContext.value);
+    .startExport(objContext.value.selectedConfig);
+};
+
+const selectConfig = (selected) => {
+  objContext.value.selectedConfig = selected;
+  objContext.value.currentConfig = objContext.value.configs[selected];
 };
 
 onMounted(async () => {
@@ -102,10 +107,10 @@ onMounted(async () => {
           <div class="flex h-6 items-center">
             <input
               :id="cK"
-              :checked="c === objContext.currentConfig"
-              :value="c"
+              :checked="cK === objContext.selectedConfig"
+              :value="cK"
               type="radio"
-              v-model="objContext.currentConfig"
+              @input="(event) => selectConfig(event.target.value)"
               class="h-4 w-4 border-gray focus:ring-accent"
             />
           </div>
@@ -125,9 +130,13 @@ onMounted(async () => {
   <button
     type="submit"
     class="mt-4 flex w-full justify-center rounded-full bg-surface px-3 py-1.5 text-sm leading-6 text-white shadow-sm"
-    :class="objContext.exportRunning ? '' : 'hover:bg-accent'"
+    :class="
+      objContext.exportRunning || !objContext.selectedConfig
+        ? ''
+        : 'hover:bg-accent'
+    "
     @click="triggerExport"
-    :disabled="objContext.exportRunning"
+    :disabled="objContext.exportRunning || !objContext.selectedConfig"
   >
     <svg
       class="animate-spin mr-4"

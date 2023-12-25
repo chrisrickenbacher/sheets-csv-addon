@@ -40,12 +40,12 @@ function configs() {
             fieldDelimiter: ';',
             recordDelimiter: ';\n',
             enclosing: '"',
-            fieldReplacer: [
-                {
-                    search: /(^|[^"])(")([^"]|$)/g,
-                    replace: '$1""$3'
-                }
-            ]
+                fieldReplacer: [
+                    {
+                        search: /(^|[^"])(")([^"]|$)/g,
+                        replace: '$1""$3'
+                    }
+                ]
         }
 
 

@@ -7,7 +7,7 @@ function onOpen(e) {
 }
 
 function open() {
-    var html = HtmlService.createHtmlOutputFromFile('vue/index')
+    let html = HtmlService.createHtmlOutputFromFile('vue/index')
         .setTitle('CSV Exporter');
     SpreadsheetApp.getUi().showSidebar(html);
 }
@@ -17,14 +17,14 @@ var objContext = {
 }
 
 function getContext() {
-    Logger.log('New context fetched');
-    objContext.documentProperties = PropertiesService.getDocumentProperties().getProperties();
-    objContext.activeUserEmail = Session.getActiveUser().getEmail();
-    return { success: true, type: 'context', data: objContext }
+    console.log('New context fetched');
+    let objSessionContext = objContext
+    objSessionContext.documentProperties = PropertiesService.getDocumentProperties().getProperties();
+    objSessionContext.activeUserEmail = Session.getActiveUser().getEmail();
+    return { success: true, type: 'context', data: objSessionContext }
 }
 
-function startExport(obj) {
-    _updateContext(obj);
+function startExport(selectedConfig) {
 
     let ui = SpreadsheetApp.getUi();
     let sheet = SpreadsheetApp.getActiveSheet();
@@ -41,7 +41,8 @@ function startExport(obj) {
         `Are you sure you want to export ${sheet.getName()}?`,
         ui.ButtonSet.YES_NO);
     if (result == ui.Button.YES) {
-        let csv = _buildCSV(sheet, obj)
+
+        let csv = _buildCSV(sheet, objContext.configs[selectedConfig])
         DriveApp.createFile(fileName, csv, MimeType.PLAIN_TEXT);  
         ui.alert(
             'Finished',
@@ -66,26 +67,25 @@ function _buildCSV(sheet, obj) {
             let value = rangeValues[i][j];
 
             // Field replacer
-            if (obj.currentConfig?.fieldReplacer){
-                obj.currentConfig.fieldReplacer.forEach(r => {
-                    value = String(value).replaceAll(r.search, r.replace)
+            if (obj.fieldReplacer){
+                if (typeof value != 'string') {
+                    value = String(value)
+                }
+                obj.fieldReplacer.forEach(r => {
+                    value = value.replaceAll(r.search, r.replace)
                 })
             }
 
             // Enclosing
-            if (obj.currentConfig?.enclosing){
-                value = `${obj.currentConfig?.enclosing}${value}${obj.currentConfig?.enclosing}`
+            if (obj.enclosing){
+                value = `${obj.enclosing}${value}${obj.enclosing}`
             }
             
             rowdata.push([value]);
 
         };
-        csv += rowdata.join(obj.currentConfig?.fieldDelimiter || ',') + obj.currentConfig?.recordDelimiter || "\n";
+        csv += rowdata.join(obj.fieldDelimiter || ',') + obj.recordDelimiter || "\n";
         rowdata = [];
     };
     return csv;
 };
-
-function _updateContext(updatedContext) {
-    objContext.currentConfig = updatedContext.currentConfig
-}
