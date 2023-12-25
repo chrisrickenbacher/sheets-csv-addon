@@ -19,7 +19,7 @@ All notable changes to this project will be documented in this file. See [standa
 * basic documentation ([b3c3342](https://github.com/chrisrickenbacher/sheets-csv-addon/commit/b3c3342a1a02758b24e55798b8b0240f2581e685))
 * basic export based on predefined configs ([2c21857](https://github.com/chrisrickenbacher/sheets-csv-addon/commit/2c21857475b98f47822406653ccfa68f736f0f65))
 
-### 1.0.0 (2023-12-24)
+## 1.0.0 (2023-12-24)
 
 ### Features
 
