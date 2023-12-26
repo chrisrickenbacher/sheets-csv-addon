@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.5](https://github.com/chrisrickenbacher/sheets-csv-addon/compare/v1.1.4...v1.1.5) (2023-12-26)
+
+
+### Bug Fixes
+
+* little overall fixes ([7867e75](https://github.com/chrisrickenbacher/sheets-csv-addon/commit/7867e75cd819beeb8d28d4577b0bf2c3063525db))
+
 ### [1.1.4](https://github.com/chrisrickenbacher/sheets-csv-addon/compare/v1.1.3...v1.1.4) (2023-12-25)
 
 ### [1.1.3](https://github.com/chrisrickenbacher/sheets-csv-addon/compare/v1.1.2...v1.1.3) (2023-12-25)
