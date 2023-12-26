@@ -20,8 +20,8 @@ Modify, adapt, or hack the Extension or otherwise attempt to gain unauthorized a
 ## 3. Privacy
 Your use of the Extension is also governed by our Privacy Policy. By using the Extension, you consent to the practices outlined in the Privacy Policy.
 
-## 4. Google Permissions
-The Extension may require certain permissions to access features within Google Sheets. You agree to grant the necessary permissions for the proper functioning of the Extension.
+## 4. Google™ Permissions
+The Extension may require certain permissions to access features within Google Sheets™. You agree to grant the necessary permissions for the proper functioning of the Extension.
 
 ## 5. Intellectual Property
 The Extension and its original content, features, and functionality are owned by Christian Rickenbacher and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.

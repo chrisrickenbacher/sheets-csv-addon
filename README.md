@@ -2,7 +2,7 @@
 
 # Sheets CSV Addon
 
-Google Sheets Add-on for extended CSV exports.
+Google Sheets™ Add-on for extended CSV exports.
 
 
 <h3>
