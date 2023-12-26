@@ -4,7 +4,7 @@ function configs() {
 
         csv_rfc4180: {
             name: 'Default CSV',
-            description: 'Based on RFC 4180',
+            description: 'Based on RFC 4180.',
             fieldDelimiter: ',',
             recordDelimiter: '\n',
             enclosing: '"',

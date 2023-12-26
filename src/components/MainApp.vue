@@ -118,9 +118,7 @@ onMounted(async () => {
             <label :for="cK" class="font-medium">
               {{ c.name }}
             </label>
-            <p :id="`${cK}-description`">
-              {{ c.description }}
-            </p>
+            <p :id="`${cK}-description`"></p>
           </div>
         </div>
       </div>
